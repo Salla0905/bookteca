@@ -1,3 +1,4 @@
+/* Estilo geral do body */
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, #cce7ff, #f4f4f4); /* fundo com degradê suave */
@@ -5,6 +6,7 @@ body {
   padding: 0;
 }
 
+/* Título principal */
 h1 {
   text-align: center;
   margin-top: 3rem;
@@ -14,6 +16,7 @@ h1 {
   font-size: 2.5rem;
 }
 
+/* Container dos cards */
 .section-center {
   display: flex;
   justify-content: center;
@@ -22,6 +25,7 @@ h1 {
   flex-wrap: wrap;
 }
 
+/* Card individual */
 .card {
   background: #ffffff;
   border-radius: 15px;
@@ -33,10 +37,12 @@ h1 {
   background: linear-gradient(to bottom, #ffffff, #e6f2ff);
 }
 
+/* Efeito ao passar o mouse no card */
 .card:hover {
   background: linear-gradient(to bottom, #d0ebff, #a0d4ff);
 }
 
+/* Dados do card */
 .card img {
   width: 100%;
   height: 20rem;
@@ -68,13 +74,14 @@ h1 {
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Efeito hover no botão */
 .btn:hover {
   background: #0370b3;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Modal */
+/* Fundo escuro do modal */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -88,11 +95,13 @@ h1 {
   z-index: -10;
 }
 
+/* Classe que deixa o modal visível */
 .open-modal {
   visibility: visible;
   z-index: 10;
 }
 
+/* Container do modal */
 .modal-container {
   background: #ffffff;
   padding: 2rem 2.5rem;
@@ -104,12 +113,14 @@ h1 {
   animation: fadeIn 0.3s ease forwards;
 }
 
+/* Imagem do modal */
 .modal-container img {
   width: 180px;
   margin-bottom: 1rem;
   border-radius: 12px;
 }
 
+/* Botão de fechar o modal */
 .close-btn {
   position: absolute;
   top: 1rem;
@@ -121,17 +132,18 @@ h1 {
   color: #ff4d4d;   
 }
 
+/* Efeito hover no botão de fechar */
 .close-btn:hover {
   transform: scale(1.2);
 }
 
+/* Animação de entrada do modal */
 @keyframes fadeIn {
   from {opacity: 0; transform: scale(0.9);}
   to {opacity: 1; transform: scale(1);}
 }
 
-/* carrossel */
-
+/* Área do carrossel */
 .carousel {
   position: relative;
   overflow: hidden; 
@@ -141,16 +153,19 @@ h1 {
   padding-left: 0.2;
 }
 
+/* Faixa que contém os cards do carrossel */
 .carousel-track {
   display: flex;
   transition: transform 0.4s ease-in-out;
 }
 
+/* Ajustes nos cards dentro do carrossel */
 .card {
   min-width: 250px;
   margin-right: 1rem;
 }
 
+/* Botões do carrossel */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -164,10 +179,12 @@ h1 {
   z-index: 10;
 }
 
+/* Botão anterior */
 .carousel-btn.prev {
   left: 1.5rem;
 }
 
+/* Botão próximo */
 .carousel-btn.next {
   right: 1.5rem;
 }

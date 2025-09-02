@@ -1,5 +1,4 @@
 /*Declarando as variaveis necessárias do modal */
-
 const modal = document.querySelector(".modal-overlay");
 const closeBtn = document.querySelector(".close-btn");
 
@@ -7,6 +6,8 @@ const modalTitle = document.getElementById("modal-title");
 const modalImg = document.getElementById("modal-img");
 const modalDesc = document.getElementById("modal-desc");
 
+
+/*Criando objeto para armazenamento dos dados de cada livro*/
 const livros = {
   sem_coracao: {
     titulo: "Sem coração",
@@ -54,8 +55,8 @@ const livros = {
     desc: `Capitães da Areia é um romance do escritor brasileiro Jorge Amado, publicado em 1937. A obra narra a vida de um grupo de meninos de rua em Salvador, que se organizam em uma espécie de gangue. Através de suas histórias, Amado aborda temas como a pobreza, a marginalização e a busca por liberdade.`
   },
 };
-/*Abrindo o modal por meio da adição de uma classe e removendo-o por meio da remoção da mesma */
 
+/* Abre o modal ao clicar em "ver mais" (adiciona a classe) e fecha ao clicar no botão (remove a classe) */
 document.querySelectorAll(".ver-mais").forEach(btn => {
   btn.addEventListener("click", () => {
     const livroId = btn.dataset.livro;
@@ -107,7 +108,7 @@ function nextSlide() {
   }
 }
 
-/* Volta para a esquerda */
+/* Volta um card, se estiver no início, reposiciona no final para manter o loop */
 function prevSlide() {
   if (index === 0) {
     track.style.transition = 'none';
