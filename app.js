@@ -80,7 +80,7 @@ const track = document.querySelector('.carousel-track');
 const cards = Array.from(track.children);
 const cardWidth = cards[0].offsetWidth + 16; // largura do card + margin
 
-/* clona os cards */
+/* duplicando os cards */
 cards.forEach(card => {
   const clone = card.cloneNode(true);
   track.appendChild(clone);
