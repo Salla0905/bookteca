@@ -1,3 +1,5 @@
+/*Declarando as variaveis necessárias do modal */
+
 const modal = document.querySelector(".modal-overlay");
 const closeBtn = document.querySelector(".close-btn");
 
@@ -52,6 +54,7 @@ const livros = {
     desc: `Capitães da Areia é um romance do escritor brasileiro Jorge Amado, publicado em 1937. A obra narra a vida de um grupo de meninos de rua em Salvador, que se organizam em uma espécie de gangue. Através de suas histórias, Amado aborda temas como a pobreza, a marginalização e a busca por liberdade.`
   },
 };
+/*Abrindo o modal por meio da adição de uma classe e removendo-o por meio da remoção da mesma */
 
 document.querySelectorAll(".ver-mais").forEach(btn => {
   btn.addEventListener("click", () => {
