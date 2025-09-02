@@ -1,4 +1,3 @@
-/*Declarando variaveis dentro do modal*/
 const modal = document.querySelector(".modal-overlay");
 const closeBtn = document.querySelector(".close-btn");
 
@@ -6,7 +5,6 @@ const modalTitle = document.getElementById("modal-title");
 const modalImg = document.getElementById("modal-img");
 const modalDesc = document.getElementById("modal-desc");
 
-/*Livros que serão apresentados nos cards*/
 const livros = {
   sem_coracao: {
     titulo: "Sem coração",
@@ -55,45 +53,44 @@ const livros = {
   },
 };
 
-/*Configuração para abrir o modal assim que selecionar o botão ver mais*/
 document.querySelectorAll(".ver-mais").forEach(btn => {
   btn.addEventListener("click", () => {
     const livroId = btn.dataset.livro;
     const livro = livros[livroId];
-    /*Define os atributos do modal como o do livro escolhido*/
+
     modalTitle.textContent = livro.titulo;
     modalImg.src = livro.img;
     modalDesc.textContent = livro.desc;
-    /*adicona uma classe que indica que o modal está aberto nele*/
+
     modal.classList.add("open-modal");
   });
 });
 
-/*Fecha o modal por meio da retirada da classe */
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("open-modal");
 });
 
 
+
 /* Carrossel */
 const track = document.querySelector('.carousel-track');
 const cards = Array.from(track.children);
-const cardWidth = cards[0].offsetWidth + 16; // card + margin
+const cardWidth = cards[0].offsetWidth + 16; // largura do card + margin
 
-/*clona os cards*/
+/* clona os cards */
 cards.forEach(card => {
   const clone = card.cloneNode(true);
   track.appendChild(clone);
 });
 
 let index = 0;
-/*adiciona uma transição que adiciona uma distancia pro card rolar*/
+/* adiciona a transição e move a track */
 function updateCarousel() {
   track.style.transition = 'transform 0.5s ease-in-out';
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
 
-/*Avança para a direita (em direção ao "fim")*/
+/* Avança para a direita */
 function nextSlide() {
   index++;
   updateCarousel();
@@ -107,9 +104,8 @@ function nextSlide() {
   }
 }
 
-/*Volta para a esquerda ("em direção ao começo")*/
+/* Volta para a esquerda */
 function prevSlide() {
-  /*Verifica se já tá no começo*/
   if (index === 0) {
     track.style.transition = 'none';
     index = cards.length;
@@ -125,5 +121,20 @@ function prevSlide() {
   }
 }
 
+/* botões de navegação */
 document.querySelector('.carousel-btn.next').addEventListener('click', nextSlide);
 document.querySelector('.carousel-btn.prev').addEventListener('click', prevSlide);
+
+/* delegação para abrir modal (funciona nos clones também) */
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("ver-mais")) {
+    const livroId = e.target.dataset.livro;
+    const livro = livros[livroId];
+
+    modalTitle.textContent = livro.titulo;
+    modalImg.src = livro.img;
+    modalDesc.textContent = livro.desc;
+
+    modal.classList.add("open-modal");
+  }
+});
